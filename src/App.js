@@ -1,6 +1,8 @@
 import './App.css';
 
 function App() {
+
+
   const handleAddUser = event => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -9,18 +11,17 @@ function App() {
     const user = { name, email };
     console.log(user);
 
-    // fetch('http://localhost:5000/user', {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify(user)
-    // })
-
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log("success:", data)
-    //   })
+    fetch('http://localhost:5000/user', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application.json'
+      },
+      body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log("success:", data);
+    })
   }
   return (
     <div className="App">
